@@ -1,23 +1,18 @@
 <template>
-  
-  <h1 class="text-bold">helo</h1>
-  <input v-model="Value" type="text" name="" id="">
-  <input v-model="document" type="text" name="" id="">
-  <List />
-  <div class="bg-red-500 p-4 text-white">
-  Test Tailwind - this should be red
-</div>
+
+  <div style="margin: 10px">
+    <button @click="showConfetti" style="background-color: black; color: white; padding: 15px; border-radius: 10px ;">Confetti</button>
+  </div>
+ 
 </template>
 <script setup>
-import List from './List.vue'
-import { ref, watch } from 'vue';
-const Value = ref("")
-const document = ref("")
-watch(Value, (newValue, oldValue)=> {
-  console.log(`Value changed from ${oldValue} to ${newValue}`);
-  document.value = newValue
-  console.log(document.value);
-  
-})
+import confetti from 'canvas-confetti';
+function showConfetti() {
+  confetti({
+    particleCount: 200,
+    spread: 90,
+    origin: { y: 0.8 }
+  });
+}
 </script>
 <style></style>
