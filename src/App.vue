@@ -1,11 +1,17 @@
 <template>
-
-  <div style="margin: 10px">
-    <button @click="showConfetti" style="background-color: black; color: white; padding: 15px; border-radius: 10px ;">Confetti</button>
-  </div>
- 
+<Badge
+@click="showConfetti"
+  :variant="'subtle'"
+  :ref_for="true"
+  theme="green"
+  size="lg"
+  label="Badge"
+>
+  Badge
+</Badge>
 </template>
 <script setup>
+import Badge from 'frappe-ui/src/components/Badge.vue';
 import confetti from 'canvas-confetti';
 function showConfetti() {
   confetti({
